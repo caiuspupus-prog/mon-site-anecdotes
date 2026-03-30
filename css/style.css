@@ -1,7 +1,10 @@
 /* ========================================
-   ALMANACH DU GAI SAVOIR
-   Style vintage inspiré de l'Almanach Vermot
+   LE GAI SAVOIR QUOTIDIEN
+   Style Années Folles - Art Déco 1920s
+   Inspiré par Gatsby, le Charleston et l'Art Déco
    ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway:wght@300;400;700&family=Cinzel:wght@400;700;900&display=swap');
 
 * {
     margin: 0;
@@ -10,80 +13,150 @@
 }
 
 body {
-    font-family: 'Crimson Text', 'Garamond', 'Georgia', serif;
+    font-family: 'Raleway', 'Arial', sans-serif;
     line-height: 1.8;
-    color: #2c1810;
-    background: #f4e8d0;
-    background-image: 
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(139, 69, 19, 0.03) 2px,
-            rgba(139, 69, 19, 0.03) 4px
-        );
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    background-attachment: fixed;
     min-height: 100vh;
     padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Motif Art Déco en arrière-plan */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(255, 215, 0, 0.03) 35px,
+            rgba(255, 215, 0, 0.03) 70px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 35px,
+            rgba(255, 215, 0, 0.03) 35px,
+            rgba(255, 215, 0, 0.03) 70px
+        );
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* ========================================
-   HEADER - Style Almanach
+   HEADER - Style Art Déco
    ======================================== */
 
 header {
     text-align: center;
-    padding: 2rem 1rem;
-    background: linear-gradient(to bottom, #8b4513 0%, #654321 100%);
-    border: 6px double #d4af37;
-    border-radius: 15px;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border: 4px solid #d4af37;
+    border-radius: 0;
     box-shadow: 
-        0 8px 16px rgba(0,0,0,0.3),
-        inset 0 2px 4px rgba(255,255,255,0.2);
-    margin-bottom: 2rem;
+        0 10px 40px rgba(0,0,0,0.5),
+        inset 0 0 30px rgba(212, 175, 55, 0.1),
+        0 0 0 8px #1a1a1a,
+        0 0 0 12px #d4af37;
+    margin-bottom: 3rem;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
+/* Motifs géométriques Art Déco dans le header */
 header::before {
-    content: "✦";
+    content: "";
     position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 2rem;
-    color: #d4af37;
-    opacity: 0.5;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 20px,
+            rgba(212, 175, 55, 0.05) 20px,
+            rgba(212, 175, 55, 0.05) 40px
+        );
+    animation: shimmerBackground 20s linear infinite;
+    pointer-events: none;
 }
 
+@keyframes shimmerBackground {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(50px) translateY(50px); }
+}
+
+/* Coins décoratifs Art Déco */
 header::after {
-    content: "✦";
+    content: "◆";
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 2rem;
+    font-size: 3rem;
     color: #d4af37;
-    opacity: 0.5;
+    opacity: 0.3;
+    top: 20px;
+    left: 20px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
 }
 
 header h1 {
-    font-family: 'Playfair Display', 'Didot', serif;
-    font-size: 3rem;
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
     font-weight: 900;
-    color: #d4af37;
-    text-shadow: 
-        2px 2px 0 #654321,
-        4px 4px 8px rgba(0,0,0,0.5);
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 8px;
+    margin-bottom: 1rem;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    }
 }
 
 .tagline {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Poiret One', cursive;
     font-style: italic;
+    font-size: 1.4rem;
+    color: #ffd700;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.tagline::before,
+.tagline::after {
+    content: "✦";
+    margin: 0 15px;
     font-size: 1.2rem;
-    color: #f4e8d0;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    letter-spacing: 1px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
 }
 
 /* ========================================
@@ -91,322 +164,354 @@ header h1 {
    ======================================== */
 
 main {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 /* ========================================
-   ANECDOTE DU JOUR - Style Carte Vintage
+   ANECDOTE DU JOUR - Style Gatsby
    ======================================== */
 
 .anecdote-container {
-    background: #fffef7;
-    background-image: 
-        linear-gradient(90deg, rgba(139, 69, 19, 0.02) 1px, transparent 1px),
-        linear-gradient(rgba(139, 69, 19, 0.02) 1px, transparent 1px);
-    background-size: 20px 20px;
-    border: 8px solid #8b4513;
-    border-image: repeating-linear-gradient(
-        45deg,
-        #8b4513,
-        #8b4513 10px,
-        #654321 10px,
-        #654321 20px
-    ) 8;
-    padding: 2.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    border: 3px solid #d4af37;
+    padding: 3rem;
     box-shadow: 
-        0 10px 30px rgba(0,0,0,0.4),
-        inset 0 0 20px rgba(139, 69, 19, 0.1);
-    margin-bottom: 2rem;
+        0 15px 50px rgba(0,0,0,0.4),
+        inset 0 0 30px rgba(212, 175, 55, 0.1),
+        0 0 0 6px #1a1a1a,
+        0 0 0 9px #d4af37;
+    margin-bottom: 3rem;
     position: relative;
+    overflow: hidden;
 }
 
+/* Motif Art Déco en fond */
 .anecdote-container::before {
-    content: "❦";
+    content: "";
     position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2rem;
-    color: #8b4513;
-    opacity: 0.3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, transparent 0%, transparent 50%, rgba(212, 175, 55, 0.03) 50%, rgba(212, 175, 55, 0.03) 100%),
+        radial-gradient(circle at 80% 50%, transparent 0%, transparent 50%, rgba(212, 175, 55, 0.03) 50%, rgba(212, 175, 55, 0.03) 100%);
+    pointer-events: none;
 }
 
+/* Coins décoratifs */
 .anecdote-container::after {
     content: "";
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    border: 2px solid rgba(139, 69, 19, 0.2);
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
     pointer-events: none;
 }
 
 .badge-jour {
     display: inline-block;
-    background: #8b4513;
-    color: #d4af37;
-    padding: 0.5rem 1.5rem;
-    border: 3px double #d4af37;
-    font-family: 'Playfair Display', serif;
-    font-size: 0.9rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #ffd700;
+    padding: 0.8rem 2rem;
+    border: 3px solid #d4af37;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    letter-spacing: 4px;
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.2);
     position: relative;
     z-index: 1;
-    background-image: linear-gradient(
-        90deg,
-        #8b4513 0%,
-        #a0522d 50%,
-        #8b4513 100%
-    );
-    background-size: 200% auto;
-    animation: shimmer 3s linear infinite;
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
 }
 
 .badge-jour::before {
     content: "✦ ";
+    font-size: 1.2rem;
 }
 
 .badge-jour::after {
     content: " ✦";
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -1000px 0;
-    }
-    100% {
-        background-position: 1000px 0;
-    }
+    font-size: 1.2rem;
 }
 
 .date {
-    color: #8b4513;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     text-align: center;
-    font-family: 'Playfair Display', serif;
-    border-bottom: 2px solid #d4af37;
-    padding-bottom: 0.5rem;
+    font-family: 'Raleway', sans-serif;
+    border-bottom: 3px solid #d4af37;
+    padding-bottom: 1rem;
+    background: linear-gradient(to right, transparent 0%, rgba(212, 175, 55, 0.1) 50%, transparent 100%);
 }
 
 .anecdote-numero {
-    color: #999;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
     text-align: center;
     font-style: italic;
+    font-family: 'Poiret One', cursive;
 }
 
 .anecdote-content {
     font-size: 1.3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: justify;
     line-height: 2;
-    text-indent: 2em;
-    color: #2c1810;
+    color: #1a1a1a;
     position: relative;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.5);
-    border-left: 4px solid #d4af37;
-    border-right: 4px solid #d4af37;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-left: 5px solid #d4af37;
+    border-right: 5px solid #d4af37;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
 .anecdote-content::first-letter {
-    font-size: 3.5rem;
+    font-size: 5rem;
     font-weight: bold;
     float: left;
     line-height: 0.8;
-    margin: 0.1em 0.1em 0 0;
-    color: #8b4513;
-    font-family: 'Playfair Display', serif;
+    margin: 0.1em 0.2em 0 0;
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Cinzel', serif;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
 .source {
-    font-size: 0.95rem;
-    color: #654321;
-    border-left: 4px solid #8b4513;
-    padding-left: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #1a1a1a;
+    border-left: 5px solid #d4af37;
+    padding-left: 2rem;
+    margin-bottom: 2.5rem;
     font-style: italic;
-    background: rgba(139, 69, 19, 0.05);
-    padding: 1rem 1rem 1rem 1.5rem;
-    border-radius: 0 8px 8px 0;
+    background: linear-gradient(to right, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    position: relative;
 }
 
 .source::before {
-    content: "📖 ";
+    content: "◆";
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #d4af37;
     font-style: normal;
 }
 
 .source a {
-    color: #8b4513;
+    color: #1a1a1a;
     text-decoration: none;
     font-weight: bold;
-    border-bottom: 2px dotted #d4af37;
+    border-bottom: 2px solid #d4af37;
     transition: all 0.3s;
+    padding-bottom: 2px;
 }
 
 .source a:hover {
     color: #d4af37;
-    border-bottom: 2px solid #d4af37;
+    border-bottom: 2px solid #ffd700;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 /* ========================================
-   BOUTONS DE PARTAGE - Style Vintage
+   BOUTONS DE PARTAGE - Style Art Déco
    ======================================== */
 
 .share-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .share-buttons button {
     flex: 1;
-    min-width: 180px;
-    padding: 1rem 1.5rem;
-    border: 3px solid #8b4513;
-    background: linear-gradient(to bottom, #d4af37 0%, #b8941f 100%);
-    color: #2c1810;
+    min-width: 200px;
+    padding: 1.2rem 2rem;
+    border: 3px solid #d4af37;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #ffd700;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     transition: all 0.3s;
     box-shadow: 
-        0 4px 8px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.3);
+        0 5px 15px rgba(0,0,0,0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
     position: relative;
+    overflow: hidden;
+    clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
 }
 
 .share-buttons button::before {
     content: "";
     position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
-    border: 1px solid rgba(255,255,255,0.3);
-    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    border-radius: 50%;
+}
+
+.share-buttons button:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .share-buttons button:hover {
-    background: linear-gradient(to bottom, #e5c050 0%, #d4af37 100%);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    transform: translateY(-3px);
     box-shadow: 
-        0 6px 12px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.5);
+        0 8px 20px rgba(0,0,0,0.4),
+        inset 0 0 30px rgba(212, 175, 55, 0.2),
+        0 0 20px rgba(212, 175, 55, 0.3);
+    border-color: #ffd700;
 }
 
 .share-buttons button:active {
     transform: translateY(0);
     box-shadow: 
-        0 2px 4px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.3);
+        0 3px 10px rgba(0,0,0,0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
 /* ========================================
-   SECTION ARCHIVES - Style Registre
+   SECTION ARCHIVES - Style Années Folles
    ======================================== */
 
 .archives-section {
-    background: #fffef7;
-    border: 8px solid #654321;
-    border-image: repeating-linear-gradient(
-        45deg,
-        #654321,
-        #654321 10px,
-        #8b4513 10px,
-        #8b4513 20px
-    ) 8;
-    padding: 2.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    border: 3px solid #d4af37;
+    padding: 3rem;
     box-shadow: 
-        0 10px 30px rgba(0,0,0,0.4),
-        inset 0 0 20px rgba(139, 69, 19, 0.1);
-    margin-bottom: 2rem;
+        0 15px 50px rgba(0,0,0,0.4),
+        inset 0 0 30px rgba(212, 175, 55, 0.1),
+        0 0 0 6px #1a1a1a,
+        0 0 0 9px #d4af37;
+    margin-bottom: 3rem;
     position: relative;
+    overflow: hidden;
 }
 
 .archives-section::before {
     content: "";
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    border: 2px solid rgba(139, 69, 19, 0.2);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 50px,
+            rgba(212, 175, 55, 0.03) 50px,
+            rgba(212, 175, 55, 0.03) 100px
+        );
+    pointer-events: none;
+}
+
+.archives-section::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
     pointer-events: none;
 }
 
 .archives-section h2 {
-    color: #8b4513;
-    margin-bottom: 1.5rem;
-    font-size: 2.2rem;
-    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    border-bottom: 4px double #d4af37;
-    padding-bottom: 1rem;
+    letter-spacing: 6px;
+    border-bottom: 4px solid #d4af37;
+    padding-bottom: 1.5rem;
     position: relative;
     z-index: 1;
+    background: linear-gradient(to right, transparent 0%, rgba(212, 175, 55, 0.1) 50%, transparent 100%);
 }
 
 .archives-section h2::before {
-    content: "❦ ";
+    content: "◆ ";
     color: #d4af37;
+    font-size: 2rem;
 }
 
 .archives-section h2::after {
-    content: " ❦";
+    content: " ◆";
     color: #d4af37;
+    font-size: 2rem;
 }
 
 .info-rotation {
-    background: #f9f3e6;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
     border: 3px solid #d4af37;
-    border-left: 6px solid #8b4513;
-    padding: 1.2rem;
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
-    color: #654321;
+    border-left: 6px solid #1a1a1a;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    color: #1a1a1a;
     font-style: italic;
-    box-shadow: inset 0 2px 4px rgba(139, 69, 19, 0.1);
+    box-shadow: inset 0 2px 10px rgba(212, 175, 55, 0.2);
+    font-family: 'Poiret One', cursive;
 }
 
 .info-rotation::before {
-    content: "ℹ️ ";
+    content: "◆ ";
     font-style: normal;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    color: #d4af37;
 }
 
 .archive-item {
-    padding: 1.5rem;
-    border-bottom: 2px dashed #d4af37;
-    background: rgba(255, 255, 255, 0.3);
-    margin-bottom: 0.5rem;
+    padding: 2rem;
+    border-bottom: 3px solid rgba(212, 175, 55, 0.3);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+    margin-bottom: 1rem;
     position: relative;
     transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
 }
 
 .archive-item::before {
-    content: "✦";
+    content: "◆";
     position: absolute;
-    left: 0;
-    top: 1.5rem;
-    font-size: 1.5rem;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
     color: #d4af37;
     opacity: 0;
     transition: all 0.3s;
@@ -417,9 +522,11 @@ main {
 }
 
 .archive-item:hover {
-    background: #f9f3e6;
-    padding-left: 2rem;
-    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+    background: linear-gradient(to right, rgba(212, 175, 55, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+    padding-left: 2.5rem;
+    box-shadow: 
+        0 5px 15px rgba(212, 175, 55, 0.2),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
 .archive-item:hover::before {
@@ -428,34 +535,217 @@ main {
 }
 
 .archive-date {
-    color: #8b4513;
+    color: #1a1a1a;
     font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 1px;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .archive-preview {
-    color: #654321;
-    font-size: 1.05rem;
+    color: #333;
+    font-size: 1.1rem;
     line-height: 1.8;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 /* IMPORTANT : Le contenu complet est CACHÉ par défaut */
 .archive-full {
     display: none;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 3px double #8b4513;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 3px solid #d4af37;
 }
 
 /* IMPORTANT : Seulement visible quand la classe 'active' est ajoutée */
 .archive-full.active {
     display: block;
-    animation: fadeIn 0.5s ease-in;
+    animation: fadeInSlide 0.5s ease-in;
 }
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.archive-full-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: justify;
+    line-height: 2;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-left: 5px solid #d4af37;
+    border-right: 5px solid #d4af37;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.archive-full-text::first-letter {
+    font-size: 4rem;
+    font-weight: bold;
+    float: left;
+    line-height: 0.8;
+    margin: 0.1em 0.2em 0 0;
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Cinzel', serif;
+}
+
+.archive-source {
+    font-size: 1rem;
+    color: #1a1a1a;
+    border-left: 5px solid #d4af37;
+    padding-left: 2rem;
+    font-style: italic;
+    background: linear-gradient(to right, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    position: relative;
+}
+
+.archive-source::before {
+    content: "◆";
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #d4af37;
+    font-style: normal;
+}
+
+.archive-source a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid #d4af37;
+    transition: all 0.3s;
+}
+
+.archive-source a:hover {
+    color: #d4af37;
+    border-bottom: 2px solid #ffd700;
+}
+
+/* IMPORTANT : Le bouton doit être cliquable */
+.btn-toggle {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #ffd700;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #d4af37;
+    transition: all 0.3s;
+    cursor: pointer;
+    user-select: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+.btn-toggle:hover {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    border-color: #ffd700;
+}
+
+.btn-toggle:active {
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ========================================
+   FOOTER - Style Art Déco
+   ======================================== */
+
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border: 3px solid #d4af37;
+    color: #ffd700;
+    font-family: 'Poiret One', cursive;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.5),
+        inset 0 0 30px rgba(212, 175, 55, 0.1);
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+footer::before {
+    content: "◆ ✦ ◆";
+    display: block;
+    color: #d4af37;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+/* ========================================
+   RESPONSIVE - Adaptation Mobile
+   ======================================== */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+        letter-spacing: 4px;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+    
+    .anecdote-content {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+    }
+
+    .anecdote-content::first-letter {
+        font-size: 3.5rem;
+    }
+
+    .share-buttons button {
+        min-width: 100%;
+    }
+
+    .archives-section h2 {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+    }
+
+    .anecdote-container,
+    .archives-section {
+        padding: 2rem;
+    }
+
+    .badge-jour {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS SUPPLÉMENTAIRES
+   ======================================== */
 
 @keyframes fadeIn {
     from {
@@ -468,143 +758,10 @@ main {
     }
 }
 
-.archive-full-text {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    text-align: justify;
-    line-height: 2;
-    text-indent: 2em;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.5);
-    border-left: 4px solid #d4af37;
-    border-right: 4px solid #d4af37;
-}
-
-.archive-full-text::first-letter {
-    font-size: 3rem;
-    font-weight: bold;
-    float: left;
-    line-height: 0.8;
-    margin: 0.1em 0.1em 0 0;
-    color: #8b4513;
-    font-family: 'Playfair Display', serif;
-}
-
-.archive-source {
-    font-size: 0.9rem;
-    color: #654321;
-    border-left: 4px solid #8b4513;
-    padding-left: 1.5rem;
-    font-style: italic;
-    background: rgba(139, 69, 19, 0.05);
-    padding: 1rem 1rem 1rem 1.5rem;
-    border-radius: 0 8px 8px 0;
-}
-
-.archive-source::before {
-    content: "📖 ";
-    font-style: normal;
-}
-
-.archive-source a {
-    color: #8b4513;
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 2px dotted #d4af37;
-    transition: all 0.3s;
-}
-
-.archive-source a:hover {
-    color: #d4af37;
-    border-bottom: 2px solid #d4af37;
-}
-
-/* IMPORTANT : Le bouton doit être cliquable */
-.btn-toggle {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #8b4513;
-    font-size: 1rem;
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    padding: 0.5rem 1rem;
-    border: 2px solid #d4af37;
-    background: rgba(212, 175, 55, 0.1);
-    transition: all 0.3s;
-    cursor: pointer;
-    user-select: none;
-}
-
-.btn-toggle:hover {
-    background: rgba(212, 175, 55, 0.3);
-    transform: translateX(5px);
-}
-
-.btn-toggle:active {
-    transform: translateX(3px);
-    background: rgba(212, 175, 55, 0.5);
-}
-
-/* ========================================
-   FOOTER - Style Almanach
-   ======================================== */
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(to bottom, #654321 0%, #8b4513 100%);
-    border: 4px double #d4af37;
-    border-radius: 10px;
-    color: #f4e8d0;
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    margin-top: 2rem;
-}
-
-footer::before {
-    content: "✦ ✦ ✦";
-    display: block;
-    color: #d4af37;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-/* ========================================
-   RESPONSIVE - Adaptation Mobile
-   ======================================== */
-
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    .tagline {
-        font-size: 1rem;
-    }
-    
-    .anecdote-content {
-        font-size: 1.1rem;
-        text-indent: 1em;
-    }
-
-    .anecdote-content::first-letter {
-        font-size: 2.5rem;
-    }
-
-    .share-buttons button {
-        min-width: 100%;
-    }
-
-    .archives-section h2 {
-        font-size: 1.6rem;
-    }
-
-    .anecdote-container,
-    .archives-section {
-        padding: 1.5rem;
-    }
+/* Animation de chargement */
+.anecdote-container,
+.archives-section {
+    animation: fadeIn 0.8s ease-out;
 }
 
 /* ========================================
@@ -616,6 +773,10 @@ footer::before {
         background: white;
     }
     
+    body::before {
+        display: none;
+    }
+    
     .share-buttons,
     .btn-toggle {
         display: none;
@@ -624,5 +785,11 @@ footer::before {
     .archive-full {
         display: block !important;
     }
+    
+    header,
+    .anecdote-container,
+    .archives-section {
+        box-shadow: none;
+        border: 2px solid #1a1a1a;
+    }
 }
-
