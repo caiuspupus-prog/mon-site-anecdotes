@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Gai Savoir Quotidien - Almanach d'Anecdotes</title>
+    
+    <!-- Google Fonts - Style Almanach -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🎓 Le Gai Savoir Quotidien</h1>
+        <p class="tagline">Une anecdote sourcée chaque jour</p>
+    </header>
+
+    <main>
+        <!-- Anecdote du jour -->
+        <div class="anecdote-container">
+            <span class="badge-jour">✨ Anecdote du jour</span>
+            <div class="date" id="date-jour">Chargement...</div>
+            <div class="anecdote-numero" id="numero-anecdote"></div>
+            <div class="anecdote-content" id="anecdote-jour">Chargement de l'anecdote...</div>
+            <div class="source" id="source-jour"></div>
+            <div class="share-buttons">
+                <button onclick="partager('twitter')">🐦 Partager sur Twitter</button>
+                <button onclick="partager('facebook')">📘 Partager sur Facebook</button>
+            </div>
+        </div>
+
+        <!-- Section Archives -->
+        <div class="archives-section">
+            <h2>📚 Archives des anecdotes</h2>
+            <div class="info-rotation">
+                ℹ️ Les anecdotes changent automatiquement chaque jour et tournent en boucle. 
+                Vous pouvez consulter les <strong id="nb-jours-archives"></strong> derniers jours ci-dessous.
+            </div>
+            <div id="archives-liste"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Le Gai Savoir Quotidien - Anecdotes sourcées et vérifiées</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
