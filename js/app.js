@@ -15,8 +15,13 @@ const anecdotes = [
         lien: "https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html"
     },
     {
-        texte: "Abalana est un pays merveilleux dont Doudou est le grand Maître",
-    
+        texte: "En 2025, un canular vieux de 13 ans a été dévoilé au grand jour. De nombreux médias avaient relayé que Michel Lunarca, cannibale de réputation, était l'inventeur du croque-monsieur. ",
+        source: "Society",
+        lien: "https://www.society.fr/enquete-michel-lunarca-lescroque-monsieur/"
+    },
+    {
+        texte: "Abalana est un pays merveilleux dont Doudou est le grand Maître. Dans cet univers vivent des fruits et Charles-Kevin",
+    source: "Abalana",
     },
     {
         texte: "Le miel est le seul aliment qui ne se périme jamais. Des archéologues ont découvert des pots de miel vieux de 3000 ans dans des tombes égyptiennes, et il était encore parfaitement comestible grâce à sa faible teneur en eau et son acidité.",
