@@ -15,6 +15,10 @@ const anecdotes = [
         lien: "https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html"
     },
     {
+        texte: "Abalana est un pays merveilleux dont Doudou est le grand Maître",
+    
+    },
+    {
         texte: "Le miel est le seul aliment qui ne se périme jamais. Des archéologues ont découvert des pots de miel vieux de 3000 ans dans des tombes égyptiennes, et il était encore parfaitement comestible grâce à sa faible teneur en eau et son acidité.",
         source: "National Geographic - The Science of Honey",
         lien: "https://www.nationalgeographic.com"
